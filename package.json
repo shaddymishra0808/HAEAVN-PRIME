@@ -1,0 +1,39 @@
+{
+  "name": "heaven-bot",
+  "version": "1.0.0",
+  "description": "Ultra-fast hacker-style Discord bot with terminal control panel",
+  "main": "index.js",
+  "bin": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "build:exe": "node build.js"
+  },
+  "pkg": {
+    "assets": [
+      "commands/**/*.js",
+      "utils/**/*.js",
+      "data/**/*.json",
+      "config.js"
+    ],
+    "scripts": [
+      "index.js",
+      "commands/**/*.js",
+      "utils/**/*.js",
+      "config.js"
+    ]
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cli-progress": "^3.12.0",
+    "discord.js": "^14.25.1",
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1",
+    "resedit-cli": "^3.0.1"
+  }
+}
