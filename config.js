@@ -15,6 +15,7 @@ const savedToken = tokenStore.loadToken();
 const savedOwnerId = tokenStore.loadOwnerId();
 
 module.exports = {
+  port: process.env.PORT || 3000,
   prefix: process.env.PREFIX || '+',
   // Priority: saved-token.json → .env → process.env
   token: savedToken || process.env.BOT_TOKEN,

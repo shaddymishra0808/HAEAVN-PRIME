@@ -1,3 +1,4 @@
+const http = require('http');
 const { Client, GatewayIntentBits, Partials, Options, EmbedBuilder } = require('discord.js');
 const readline = require('readline');
 const chalk = require('chalk');
@@ -1109,3 +1110,14 @@ async function boot(token) {
     await boot(config.token);
   }
 })();
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain");
+  res.end("Bot is alive!");
+});
+
+server.listen(config.port, () => {
+  console.log(`HTTP server running on port ${config.port}`);
+});
+
