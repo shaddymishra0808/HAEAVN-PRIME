@@ -1043,9 +1043,13 @@ async function boot(token) {
 (async () => {
   console.clear();
   console.log(chalk.cyan.bold('\n  [SECURITY CHECK]'));
-  const accessKey = await ask(chalk.yellow('  Enter Access Key to start HANGOUT HEAVEN: '));
+  const defaultAccessKey = '99880077'; // Default for local testing
+  const accessKey = process.env.ACCESS_KEY || await ask(chalk.yellow('  Enter Access Key to start HANGOUT HEAVEN: '));
 
-  if (accessKey.trim() !== '99880077') {
+  // If ACCESS_KEY is provided via environment, use that for validation. Otherwise, use the default.
+  const validationKey = process.env.ACCESS_KEY || defaultAccessKey;
+
+  if (accessKey.trim() !== validationKey) {
     console.log(chalk.red('\n  [!] Invalid Access Key. Access Denied.\n'));
     process.exit(1);
   }
